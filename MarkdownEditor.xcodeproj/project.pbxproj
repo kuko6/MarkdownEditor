@@ -7,19 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A75827D5284229E80019AF32 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = A75827D4284229E80019AF32 /* Ink */; };
+		A75827D928422B780019AF32 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75827D828422B780019AF32 /* WebView.swift */; };
+		A75827DF284253A60019AF32 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = A75827DE284253A60019AF32 /* Style.css */; };
 		A7C99DF8283B8B890039A4AC /* MarkdownEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */; };
 		A7C99DFA283B8B890039A4AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C99DF9283B8B890039A4AC /* ContentView.swift */; };
 		A7C99DFC283B8B8A0039A4AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C99DFB283B8B8A0039A4AC /* Assets.xcassets */; };
 		A7C99DFF283B8B8A0039A4AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C99DFE283B8B8A0039A4AC /* Preview Assets.xcassets */; };
+		A7C99E07283B943E0039A4AC /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C99E06283B943E0039A4AC /* TextEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A75827D828422B780019AF32 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		A75827DE284253A60019AF32 /* Style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		A7C99DF4283B8B890039A4AC /* MarkdownEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkdownEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorApp.swift; sourceTree = "<group>"; };
 		A7C99DF9283B8B890039A4AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A7C99DFB283B8B8A0039A4AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7C99DFE283B8B8A0039A4AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A7C99E00283B8B8A0039A4AC /* MarkdownEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarkdownEditor.entitlements; sourceTree = "<group>"; };
+		A7C99E06283B943E0039A4AC /* TextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,12 +34,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A75827D5284229E80019AF32 /* Ink in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A75827E3284257040019AF32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7C99E06283B943E0039A4AC /* TextEditorView.swift */,
+				A75827D828422B780019AF32 /* WebView.swift */,
+				A75827DE284253A60019AF32 /* Style.css */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A7C99DEB283B8B890039A4AC = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +70,7 @@
 		A7C99DF6283B8B890039A4AC /* MarkdownEditor */ = {
 			isa = PBXGroup;
 			children = (
+				A75827E3284257040019AF32 /* View */,
 				A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */,
 				A7C99DF9283B8B890039A4AC /* ContentView.swift */,
 				A7C99DFB283B8B8A0039A4AC /* Assets.xcassets */,
@@ -85,6 +104,9 @@
 			dependencies = (
 			);
 			name = MarkdownEditor;
+			packageProductDependencies = (
+				A75827D4284229E80019AF32 /* Ink */,
+			);
 			productName = MarkdownEditor;
 			productReference = A7C99DF4283B8B890039A4AC /* MarkdownEditor.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +135,9 @@
 				Base,
 			);
 			mainGroup = A7C99DEB283B8B890039A4AC;
+			packageReferences = (
+				A75827D3284229E80019AF32 /* XCRemoteSwiftPackageReference "ink" */,
+			);
 			productRefGroup = A7C99DF5283B8B890039A4AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,6 +154,7 @@
 			files = (
 				A7C99DFF283B8B8A0039A4AC /* Preview Assets.xcassets in Resources */,
 				A7C99DFC283B8B8A0039A4AC /* Assets.xcassets in Resources */,
+				A75827DF284253A60019AF32 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C99DFA283B8B890039A4AC /* ContentView.swift in Sources */,
+				A75827D928422B780019AF32 /* WebView.swift in Sources */,
+				A7C99E07283B943E0039A4AC /* TextEditorView.swift in Sources */,
 				A7C99DF8283B8B890039A4AC /* MarkdownEditorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A75827D3284229E80019AF32 /* XCRemoteSwiftPackageReference "ink" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnsundell/ink.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A75827D4284229E80019AF32 /* Ink */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A75827D3284229E80019AF32 /* XCRemoteSwiftPackageReference "ink" */;
+			productName = Ink;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A7C99DEC283B8B890039A4AC /* Project object */;
 }
