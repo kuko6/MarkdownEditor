@@ -14,3 +14,29 @@ pre {
     padding: 4px;
     border-radius: 4px;
 }
+
+hr {
+    height: 2px;
+    border-width: 0;
+    background-color: #eaeaea;
+}
+
+blockquote {
+    border-left: 2px solid black;
+    padding-left: 4px
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f7f7f7;
+}

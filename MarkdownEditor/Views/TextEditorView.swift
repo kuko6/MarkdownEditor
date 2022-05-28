@@ -9,11 +9,19 @@ import SwiftUI
 import Ink
 
 struct TextEditorView: View {
-    @State private var fullText: String = "some _editable_ **text** and some `code`"
+    @State private var fullText: String = """
+    Some _editable_ **text** and some `code`
     
-    var text: AttributedString {
-        fullText.markdownToAttributed()
-    }
+    ## Table
+    | Header | Header 2 |
+    | ------ | -------- |
+    | Row 1  | Cell 1   |
+    | Row 2  | Cell 2   |
+    """
+    
+//    var text: AttributedString {
+//        fullText.markdownToAttributed()
+//    }
     
     let inlineCodeMod = Modifier(target: .inlineCode) { html, markdown in
         var newHtml = html
@@ -26,7 +34,7 @@ struct TextEditorView: View {
         parser.addModifier(inlineCodeMod)
         
         let html = parser.html(from: fullText)
-        //print(html)
+        print(html)
         return html
     }
     
@@ -38,23 +46,19 @@ struct TextEditorView: View {
                 .disableAutocorrection(true)
                 .allowsTightening(false)
             WebView(html: html)
-//            Text(text)
-//                .multilineTextAlignment(.leading)
-//                .font(.system(size: 13))
-//                .lineSpacing(2)
         }
     }
 }
 
-extension String {
-    func markdownToAttributed() -> AttributedString {
-        do {
-            return try AttributedString(markdown: self) // convert to AttributedString
-        } catch {
-            return AttributedString("Error parsing markdown: \(error)")
-        }
-    }
-}
+//extension String {
+//    func markdownToAttributed() -> AttributedString {
+//        do {
+//            return try AttributedString(markdown: self) // convert to AttributedString
+//        } catch {
+//            return AttributedString("Error parsing markdown: \(error)")
+//        }
+//    }
+//}
 
 struct TextEditingView_Previews: PreviewProvider {
     static var previews: some View {

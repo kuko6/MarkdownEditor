@@ -1,6 +1,5 @@
 # MarkdownEditor
-A custom markdown editor made in Swift.
+A simple markdown editor made in Swift.
 
 ### Dependencies
-- [Ink](https://github.com/JohnSundell/Ink)
-
+[Ink](https://github.com/JohnSundell/Ink) - markdown parser
