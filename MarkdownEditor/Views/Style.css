@@ -1,11 +1,11 @@
 body {
-    font-family: Helvetica Neue;
+    font-family: -apple-system, "Apple Color Emoji";
     font-weight: normal;
     font-size: 13px;
 }
 
 code {
-    font-family: Monaco;
+    font-family: SF Mono, Menlo, Monaco, 'Courier New', monospace;
     font-size: 12px;
 }
 
@@ -13,6 +13,7 @@ pre {
     background-color: #f1f1f1;
     padding: 4px;
     border-radius: 4px;
+    line-height: 1.6;
 }
 
 hr {
