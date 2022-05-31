@@ -5,7 +5,7 @@ body {
 }
 
 code {
-    font-family: SF Mono, Menlo, Monaco, 'Courier New', monospace;
+    font-family: SF Mono, Menlo, Monaco, monospace;
     font-size: 12px;
 }
 
@@ -13,7 +13,8 @@ pre {
     background-color: #f1f1f1;
     padding: 4px;
     border-radius: 4px;
-    line-height: 1.6;
+    line-height: 1.5;
+    tab-size: 4;
 }
 
 hr {
