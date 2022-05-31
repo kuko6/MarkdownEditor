@@ -7,10 +7,12 @@ body {
 code {
     font-family: SF Mono, Menlo, Monaco, monospace;
     font-size: 12px;
+    background-color: #f1f1f1;
+    color: #ff7723;
 }
 
 pre {
-    background-color: #f1f1f1;
+    background-color: #f7f7f7;
     padding: 4px;
     border-radius: 4px;
     line-height: 1.5;
@@ -41,4 +43,28 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #f7f7f7;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+    
+    code {
+        background-color: #3a3a3a;
+        color: #ff84ff;
+    }
+    
+    pre {
+        background-color: #2b2b2b;
+    }
+    
+    blockquote {
+        border-left: 2px solid white;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #3a3a3a;
+    }
 }

@@ -9,23 +9,37 @@ import SwiftUI
 import Ink
 
 struct TextEditorView: View {
-    @State private var fullText: String = """
-    Some _editable_ **text** and some `code`
+    @Environment(\.colorScheme) var currentMode
     
+    @State private var fullText: String = """
+    # Test
+
+    Some _editable_ **text** and some `code`.
+
     ## Table
     | Header | Header 2 |
     | ------ | -------- |
     | Row 1  | Cell 1   |
     | Row 2  | Cell 2   |
+
+
+    Na verifikovanie pouzivatela pouzivame nasledujuci kod:
+    ```
+    // Middleware for verifying the auth token for requests with userID
+    const verifyUserID = (req, res, next) => {
+        if (req.params.id != req.jwtPayload._id) {
+            return res.status(401).send({ error: { message: 'Invalid auth-token' } });
+        }
+        next();
+    };
+    ```
+
+    tato metoda sluzi na overenie JWT tokenu pouzivatelom :)
     """
-    
-//    var text: AttributedString {
-//        fullText.markdownToAttributed()
-//    }
     
     let inlineCodeMod = Modifier(target: .inlineCode) { html, markdown in
         var newHtml = html
-        newHtml.insert(contentsOf: " style=\"padding:2px;background-color:#f1f1f1;border-radius:4px;\"", at: html.firstIndex(of: ">")!)
+        newHtml.insert(contentsOf: " style=\"padding:2px;border-radius:4px;\"", at: html.firstIndex(of: ">")!)
         return newHtml
     }
     
@@ -34,36 +48,27 @@ struct TextEditorView: View {
         parser.addModifier(inlineCodeMod)
         
         let html = parser.html(from: fullText)
-        print(html)
+        //print(html)
         return html
     }
     
     var body: some View {
-        HStack() {
+        HStack(spacing: 0) {
             TextEditor(text: $fullText)
                 .font(.body)
                 .lineSpacing(2)
                 .disableAutocorrection(true)
                 .allowsTightening(false)
-            WebView(html: html)
+                .padding([.top, .leading, .bottom])
+            Divider()
+            WebView(html: html, currentMode: currentMode)
         }
+        .background(currentMode == .light ? .white : .init(red: 30/255, green: 30/255, blue: 30/255))
     }
 }
-
-//extension String {
-//    func markdownToAttributed() -> AttributedString {
-//        do {
-//            return try AttributedString(markdown: self) // convert to AttributedString
-//        } catch {
-//            return AttributedString("Error parsing markdown: \(error)")
-//        }
-//    }
-//}
 
 struct TextEditingView_Previews: PreviewProvider {
     static var previews: some View {
         TextEditorView()
-            .preferredColorScheme(.light)
-            
     }
 }
