@@ -23,7 +23,7 @@ struct TextEditorView: View {
     | Row 2  | Cell 2   |
 
 
-    Na verifikovanie pouzivatela pouzivame nasledujuci kod:
+    We used the following code for user verification:
     ```
     // Middleware for verifying the auth token for requests with userID
     const verifyUserID = (req, res, next) => {
@@ -33,8 +33,7 @@ struct TextEditorView: View {
         next();
     };
     ```
-
-    tato metoda sluzi na overenie JWT tokenu pouzivatelom :)
+    This method is used to verify the users JWT token :)
     """
     
     let inlineCodeMod = Modifier(target: .inlineCode) { html, markdown in
@@ -43,7 +42,7 @@ struct TextEditorView: View {
         return newHtml
     }
     
-    var html: String {
+    var generatedHtml: String {
         var parser = MarkdownParser()
         parser.addModifier(inlineCodeMod)
         
@@ -59,9 +58,9 @@ struct TextEditorView: View {
                 .lineSpacing(2)
                 .disableAutocorrection(true)
                 .allowsTightening(false)
-                .padding([.top, .leading, .bottom])
+                .padding([.top, .leading, .bottom], 4)
             Divider()
-            WebView(html: html, currentMode: currentMode)
+            WebView(html: generatedHtml, currentMode: currentMode)
         }
         .background(currentMode == .light ? .white : .init(red: 30/255, green: 30/255, blue: 30/255))
     }

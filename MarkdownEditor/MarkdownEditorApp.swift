@@ -12,7 +12,7 @@ struct MarkdownEditorApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(minWidth: 1000, minHeight: 500)
+                .frame(minWidth: 800, idealWidth: 1200, minHeight: 400, idealHeight: 800)
         }
     }
 }

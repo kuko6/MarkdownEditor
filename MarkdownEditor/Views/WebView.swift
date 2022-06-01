@@ -16,8 +16,8 @@ struct WebView: NSViewRepresentable {
         self.currentMode = currentMode
         
         var cssString = ""
-        if let path = Bundle.main.path(forResource: "Style", ofType: "css") {
-            cssString = try! String(contentsOfFile: path).trimmingCharacters(in: .whitespacesAndNewlines)
+        if let stylePath = Bundle.main.path(forResource: "Style", ofType: "css") {
+            cssString = try! String(contentsOfFile: stylePath).trimmingCharacters(in: .whitespacesAndNewlines)
         } else {
             print("Could not load the css file!!")
         }
