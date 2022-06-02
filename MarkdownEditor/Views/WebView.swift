@@ -10,7 +10,7 @@ import WebKit
 
 struct WebView: NSViewRepresentable {
     var currentMode: ColorScheme
-    var html: String = ""
+    var html: String
     
     init(html: String, currentMode: ColorScheme) {
         self.currentMode = currentMode
@@ -32,7 +32,7 @@ struct WebView: NSViewRepresentable {
         let highlightjsScript = "<script>hljs.initHighlightingOnLoad();</script>"
         
         self.html = "<head><style>\(cssString)</style>\(highlightjsHead)</head><body>\(highlightjsScript)\(html)</body>"
-        // print(self.html)
+        //print(self.html)
     }
     
     func makeNSView(context: Context) -> WKWebView {
@@ -44,8 +44,8 @@ struct WebView: NSViewRepresentable {
     }
 }
 
-struct WebView_Previews: PreviewProvider {
-    static var previews: some View {
-        WebView(html: "<h1>Ide to?</h1><p> Asi to funguje </p>", currentMode: .light)
-    }
-}
+//struct WebView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WebView(html: "<h1>Ide to?</h1><p> Asi to funguje </p>", currentMode: .light)
+//    }
+//}
