@@ -9,38 +9,36 @@ import SwiftUI
 import UniformTypeIdentifiers
 import Ink
 
-struct EditableDocument: FileDocument {
+final class EditableDocument: FileDocument, ObservableObject {
     static var readableContentTypes = [UTType.text, UTType.html]
     
-    private var defaultText = """
-    # Test
-
-    Some _editable_ **text** and some `code`.
-
-    ## Table
-    | Header | Header 2 |
-    | ------ | -------- |
-    | Row 1  | Cell 1   |
-    | Row 2  | Cell 2   |
-
-    We used the following code for user verification:
-    ```
-    // Middleware for verifying the auth token for requests with userID
-    const verifyUserID = (req, res, next) => {
-        if (req.params.id != req.jwtPayload._id) {
-            return res.status(401).send({ error: { message: 'Invalid auth-token' } });
-        }
-        next();
-    };
-    ```
-    This method is used to verify the users JWT token :)
-    """
-
-    var text: String
-    var html: String = "I'm html"
+    @Published var text: String
+    @Published var html = "<p>Ahojky</p>"
 
     init() {
-        self.text = defaultText
+        text = """
+        # Test
+
+        Some _editable_ **text** and some `code`.
+
+        ## Table
+        | Header | Header 2 |
+        | ------ | -------- |
+        | Row 1  | Cell 1   |
+        | Row 2  | Cell 2   |
+
+        We used the following code for user verification:
+        ```
+        // Middleware for verifying the auth token for requests with userID
+        const verifyUserID = (req, res, next) => {
+            if (req.params.id != req.jwtPayload._id) {
+                return res.status(401).send({ error: { message: 'Invalid auth-token' } });
+            }
+            next();
+        };
+        ```
+        This method is used to verify the users JWT token :)
+        """
     }
     
     // loads previously saved data from file
@@ -54,12 +52,10 @@ struct EditableDocument: FileDocument {
     }
     
     // used for saving the data
-    // TODO: - doesnt converent to html
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         var data: Data
-        
         if (configuration.contentType.description.hasSuffix(".html")) {
-            data = html.data(using: .utf8)!
+            data = ParseMarkdown(text: text, currentMode: ColorScheme.dark).toStyledHtml().data(using: .utf8)!
         } else {
             data = text.data(using: .utf8)!
         }

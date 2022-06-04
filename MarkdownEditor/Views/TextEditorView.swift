@@ -12,22 +12,21 @@ struct TextEditorView: View {
     @Environment(\.colorScheme) var currentMode
     
     @Binding var document: EditableDocument
-            
-    let inlineCodeMod = Modifier(target: .inlineCode) { html, markdown in
-        var newHtml = html
-        newHtml.insert(contentsOf: " style=\"padding:2px;border-radius:4px;\"", at: html.firstIndex(of: ">")!)
-        return newHtml
-    }
     
-    var generatedHtml: String {
-        var parser = MarkdownParser()
-        parser.addModifier(inlineCodeMod)
-        
-        let html = parser.html(from: document.text)
-        //print(html)
-        //document.html = html
-        return html
-    }
+//    let inlineCodeMod = Modifier(target: .inlineCode) { html, markdown in
+//        var newHtml = html
+//        newHtml.insert(contentsOf: " style=\"padding:2px;border-radius:4px;\"", at: html.firstIndex(of: ">")!)
+//        return newHtml
+//    }
+//
+//    var generatedHtml: String {
+//        var parser = MarkdownParser()
+//        parser.addModifier(inlineCodeMod)
+//
+//        let html = parser.html(from: document.text)
+//        //print(html)
+//        return html
+//    }
     
     var body: some View {
         HStack(spacing: 0) {
@@ -38,7 +37,10 @@ struct TextEditorView: View {
                 .allowsTightening(false)
                 .padding([.top, .leading, .bottom], 4)
             Divider()
-            WebView(html: generatedHtml, currentMode: currentMode)
+//            Button("Test") {
+//                document.html = ParseMarkdown(text: document.text, currentMode: currentMode)
+//            }
+            WebView(html: document.text, currentMode: currentMode)
         }
         .background(currentMode == .light ? .white : .init(red: 30/255, green: 30/255, blue: 30/255))
     }

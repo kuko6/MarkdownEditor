@@ -14,6 +14,7 @@
 		A7951F802849292A0076211B /* EditableDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7951F7F2849292A0076211B /* EditableDocument.swift */; };
 		A7951F82284929420076211B /* EditorCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7951F81284929420076211B /* EditorCommands.swift */; };
 		A7951F84284929AB0076211B /* ExportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7951F83284929AB0076211B /* ExportType.swift */; };
+		A7BA5AD22849526E00AB2C36 /* ParseMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA5AD12849526E00AB2C36 /* ParseMarkdown.swift */; };
 		A7C99DF8283B8B890039A4AC /* MarkdownEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */; };
 		A7C99DFA283B8B890039A4AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C99DF9283B8B890039A4AC /* ContentView.swift */; };
 		A7C99DFC283B8B8A0039A4AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C99DFB283B8B8A0039A4AC /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		A7951F7F2849292A0076211B /* EditableDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableDocument.swift; sourceTree = "<group>"; };
 		A7951F81284929420076211B /* EditorCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorCommands.swift; sourceTree = "<group>"; };
 		A7951F83284929AB0076211B /* ExportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportType.swift; sourceTree = "<group>"; };
+		A7BA5AD12849526E00AB2C36 /* ParseMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseMarkdown.swift; sourceTree = "<group>"; };
 		A7C99DF4283B8B890039A4AC /* MarkdownEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkdownEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorApp.swift; sourceTree = "<group>"; };
 		A7C99DF9283B8B890039A4AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A7BA5AD0284951B900AB2C36 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A7BA5AD12849526E00AB2C36 /* ParseMarkdown.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		A7C99DEB283B8B890039A4AC = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 		A7C99DF6283B8B890039A4AC /* MarkdownEditor */ = {
 			isa = PBXGroup;
 			children = (
+				A7BA5AD0284951B900AB2C36 /* Support */,
 				A7951F7E2849290B0076211B /* Model */,
 				A75827E3284257040019AF32 /* Views */,
 				A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */,
@@ -190,6 +201,7 @@
 				A7951F84284929AB0076211B /* ExportType.swift in Sources */,
 				A75827D928422B780019AF32 /* WebView.swift in Sources */,
 				A7C99E07283B943E0039A4AC /* TextEditorView.swift in Sources */,
+				A7BA5AD22849526E00AB2C36 /* ParseMarkdown.swift in Sources */,
 				A7951F802849292A0076211B /* EditableDocument.swift in Sources */,
 				A7951F82284929420076211B /* EditorCommands.swift in Sources */,
 				A7C99DF8283B8B890039A4AC /* MarkdownEditorApp.swift in Sources */,
