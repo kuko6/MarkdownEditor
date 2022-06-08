@@ -9,32 +9,10 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct EditorCommands: Commands {
-    //@FocusedBinding(\.selectedExportType) var selectedExportType
-    @State private var selectedExportType: UTType = .text
+    @State private var selectedExportType: UTType = .markdown
     @State private var isShowingExportDialog = false
     
-    //private var text = "lalalalal"
     var document: EditableDocument
-    
-//    func showSavePanel(exportType: UTType) {
-//        let savePanel = NSSavePanel()
-//        savePanel.allowedContentTypes = [exportType]
-//        savePanel.canCreateDirectories = true
-//        savePanel.isExtensionHidden = false
-//        savePanel.allowsOtherFileTypes = false
-//        savePanel.title = "Save your text"
-//        savePanel.message = "Choose a folder and a name to store your text."
-//        savePanel.nameFieldLabel = "File name:"
-//
-//        let response = savePanel.runModal()
-//        let saveURL = response == .OK ? savePanel.url : nil
-//        exportText(to: saveURL)
-//    }
-//
-//    func exportText(to url: URL?) {
-//        guard let url = url else { return }
-//        try? document.text.write(to: url, atomically: true, encoding: .utf8)
-//    }
     
     var body: some Commands {
         SidebarCommands() // automatically adds commands for sidebar
@@ -42,9 +20,13 @@ struct EditorCommands: Commands {
             Menu("Export") {
                 Button("To Markdown") {
                     isShowingExportDialog = true
-                    selectedExportType = .text
+                    selectedExportType = .markdown
                 }
-                Button("To html") {
+                Button("To PlainText") {
+                    isShowingExportDialog = true
+                    selectedExportType = .plainText
+                }
+                Button("To Html") {
                     isShowingExportDialog = true
                     selectedExportType = .html
                 }
@@ -57,14 +39,3 @@ struct EditorCommands: Commands {
         }
     }
 }
-
-//private struct SelectedExportTypeKey: FocusedValueKey {
-//    typealias Value = Binding<ExportType>
-//}
-//
-//extension FocusedValues {
-//    var selectedExportType: Binding<ExportType>? {
-//        get { self[SelectedExportTypeKey.self] }
-//        set { self[SelectedExportTypeKey.self] = newValue }
-//    }
-//}

@@ -8,9 +8,10 @@
 import SwiftUI
 import Ink
 
+// Parse Markdown string to styled html
 struct ParseMarkdown {
     var text: String
-    var currentMode: ColorScheme
+    var colorTheme: ColorScheme
     
     let inlineCodeMod = Modifier(target: .inlineCode) { html, markdown in
         var newHtml = html
@@ -35,7 +36,7 @@ struct ParseMarkdown {
             print("Could not load the css file!!")
         }
         
-        let colorTheme = self.currentMode == .light ? "github" : "github-dark"
+        let colorTheme = self.colorTheme == .light ? "github" : "github-dark"
         
         // TODO: - Change to static files
         let highlightjsHead = """

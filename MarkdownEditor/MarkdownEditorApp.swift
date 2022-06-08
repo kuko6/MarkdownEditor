@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MarkdownEditorApp: App {
-    @StateObject private var document = EditableDocument()
+//    @StateObject private var document = EditableDocument()
     
     var body: some Scene {
         DocumentGroup(newDocument: EditableDocument()) { file in
@@ -17,7 +17,7 @@ struct MarkdownEditorApp: App {
                 .frame(minWidth: 800, idealWidth: 1200, minHeight: 400, idealHeight: 900)
         }
         .commands {
-            EditorCommands(document: document)
+            EditorCommands(document: EditableDocument())
         }
         
 //        WindowGroup {

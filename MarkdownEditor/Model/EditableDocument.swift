@@ -7,14 +7,20 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
-import Ink
+
+// Adding imported and exported file types used by our app
+extension UTType {
+    static var markdown: UTType {
+        UTType(importedAs: "net.daringfireball.markdown")
+    }
+}
 
 final class EditableDocument: FileDocument, ObservableObject {
-    static var readableContentTypes = [UTType.text, UTType.html]
+    static var readableContentTypes = [UTType.markdown, UTType.plainText, UTType.html]
     
-    @Published var text: String
-    @Published var html = "<p>Ahojky</p>"
-
+    var text: String
+    var html = "<p>Ahojky</p>"
+    
     init() {
         text = """
         # Test
@@ -41,7 +47,7 @@ final class EditableDocument: FileDocument, ObservableObject {
         """
     }
     
-    // loads previously saved data from file
+    // Loads previously saved data from file
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents,
             let string = String(data: data, encoding: .utf8)
@@ -51,11 +57,13 @@ final class EditableDocument: FileDocument, ObservableObject {
         text = string
     }
     
-    // used for saving the data
+    // Used for saving the data
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         var data: Data
+        
+        //print(configuration.contentType.description)
         if (configuration.contentType.description.hasSuffix(".html")) {
-            data = ParseMarkdown(text: text, currentMode: ColorScheme.dark).toStyledHtml().data(using: .utf8)!
+            data = ParseMarkdown(text: text, colorTheme: ColorScheme.dark).toStyledHtml().data(using: .utf8)!
         } else {
             data = text.data(using: .utf8)!
         }

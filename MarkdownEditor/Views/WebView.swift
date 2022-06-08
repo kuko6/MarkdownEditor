@@ -14,7 +14,7 @@ struct WebView: NSViewRepresentable {
 
     init(html: String, currentMode: ColorScheme) {
         self.currentMode = currentMode
-        self.html = ParseMarkdown(text: html, currentMode: currentMode).toStyledHtml()
+        self.html = ParseMarkdown(text: html, colorTheme: currentMode).toStyledHtml()
     }
     
     func makeNSView(context: Context) -> WKWebView {
@@ -26,6 +26,7 @@ struct WebView: NSViewRepresentable {
     }
 }
 
+// MARK: - Preview
 struct WebView_Previews: PreviewProvider {
     static var previews: some View {
         WebView(html: "<h1>Ide to?</h1><p> Asi to funguje </p>", currentMode: .light)
