@@ -1,23 +1,23 @@
 //
-//  MarkdownEditorCommands.swift
+//  ToolbarCommands.swift
 //  MarkdownEditor
 //
-//  Created by kuko on 01/06/2022.
+//  Created by kuko on 08/06/2022.
 //
 
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct EditorCommands: Commands {
+// Doesnt work for some reason, idk
+struct ToolbarCommands: ToolbarContent {
     @State private var selectedExportType: UTType = .markdown
     @State private var isShowingExportDialog = false
     
-    var document: EditableDocument
-    
-    var body: some Commands {
-        SidebarCommands() // automatically adds commands for sidebar
-        CommandGroup(after: .saveItem) {
-            Menu("Export") {
+    var document = EditableDocument()
+        
+    var body: some ToolbarContent {
+        ToolbarItemGroup {
+            Menu {
                 Button("To Markdown") {
                     isShowingExportDialog = true
                     selectedExportType = .markdown
@@ -34,6 +34,8 @@ struct EditorCommands: Commands {
 //                    isShowingExportDialog = true
 //                    selectedExportType = .pdf
 //                }
+            } label: {
+                Image(systemName: "square.and.arrow.up")
             }
             .fileExporter(isPresented: $isShowingExportDialog, document: document, contentType: selectedExportType) { results in }
         }
