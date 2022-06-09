@@ -8,12 +8,12 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-// Doesnt work for some reason, idk
+// Doesnt work for some reason
 struct ToolbarCommands: ToolbarContent {
     @State private var selectedExportType: UTType = .markdown
     @State private var isShowingExportDialog = false
     
-    var document = EditableDocument()
+    @Binding var document: EditableDocument
         
     var body: some ToolbarContent {
         ToolbarItemGroup {

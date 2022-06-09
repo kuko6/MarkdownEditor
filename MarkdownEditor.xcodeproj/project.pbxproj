@@ -13,7 +13,7 @@
 		A75827E528425E150019AF32 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A75827E428425E150019AF32 /* README.md */; };
 		A77785DB28512A68002F29E3 /* ToolbarCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77785DA28512A68002F29E3 /* ToolbarCommands.swift */; };
 		A7951F802849292A0076211B /* EditableDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7951F7F2849292A0076211B /* EditableDocument.swift */; };
-		A7951F82284929420076211B /* EditorCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7951F81284929420076211B /* EditorCommands.swift */; };
+		A7951F82284929420076211B /* ExportCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7951F81284929420076211B /* ExportCommands.swift */; };
 		A7BA5AD22849526E00AB2C36 /* ParseMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA5AD12849526E00AB2C36 /* ParseMarkdown.swift */; };
 		A7C99DF8283B8B890039A4AC /* MarkdownEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */; };
 		A7C99DFA283B8B890039A4AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C99DF9283B8B890039A4AC /* ContentView.swift */; };
@@ -29,7 +29,7 @@
 		A77785D92850EB88002F29E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A77785DA28512A68002F29E3 /* ToolbarCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarCommands.swift; sourceTree = "<group>"; };
 		A7951F7F2849292A0076211B /* EditableDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableDocument.swift; sourceTree = "<group>"; };
-		A7951F81284929420076211B /* EditorCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorCommands.swift; sourceTree = "<group>"; };
+		A7951F81284929420076211B /* ExportCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportCommands.swift; sourceTree = "<group>"; };
 		A7BA5AD12849526E00AB2C36 /* ParseMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseMarkdown.swift; sourceTree = "<group>"; };
 		A7C99DF4283B8B890039A4AC /* MarkdownEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkdownEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorApp.swift; sourceTree = "<group>"; };
@@ -70,6 +70,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A7A1633F2852748400F99CAA /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				A77785DA28512A68002F29E3 /* ToolbarCommands.swift */,
+				A7951F81284929420076211B /* ExportCommands.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
 		A7BA5AD0284951B900AB2C36 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +108,12 @@
 			isa = PBXGroup;
 			children = (
 				A77785D92850EB88002F29E3 /* Info.plist */,
+				A7A1633F2852748400F99CAA /* Commands */,
 				A7BA5AD0284951B900AB2C36 /* Support */,
 				A7951F7E2849290B0076211B /* Model */,
 				A75827E3284257040019AF32 /* Views */,
 				A7C99DF7283B8B890039A4AC /* MarkdownEditorApp.swift */,
 				A7C99DF9283B8B890039A4AC /* ContentView.swift */,
-				A77785DA28512A68002F29E3 /* ToolbarCommands.swift */,
-				A7951F81284929420076211B /* EditorCommands.swift */,
 				A7C99DFB283B8B8A0039A4AC /* Assets.xcassets */,
 				A7C99E00283B8B8A0039A4AC /* MarkdownEditor.entitlements */,
 				A7C99DFD283B8B8A0039A4AC /* Preview Content */,
@@ -205,7 +213,7 @@
 				A7BA5AD22849526E00AB2C36 /* ParseMarkdown.swift in Sources */,
 				A7951F802849292A0076211B /* EditableDocument.swift in Sources */,
 				A77785DB28512A68002F29E3 /* ToolbarCommands.swift in Sources */,
-				A7951F82284929420076211B /* EditorCommands.swift in Sources */,
+				A7951F82284929420076211B /* ExportCommands.swift in Sources */,
 				A7C99DF8283B8B890039A4AC /* MarkdownEditorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

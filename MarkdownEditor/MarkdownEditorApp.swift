@@ -9,23 +9,22 @@ import SwiftUI
 
 @main
 struct MarkdownEditorApp: App {
-//    @StateObject private var document = EditableDocument()
-    
     var body: some Scene {
         DocumentGroup(newDocument: EditableDocument()) { file in
             ContentView(document: file.$document)
                 .frame(minWidth: 800, idealWidth: 1200, minHeight: 400, idealHeight: 900)
+//            NavigationView {
+//                Text("Sidebar")
+//                ContentView(document: file.$document)
+//                    .frame(minWidth: 800, idealWidth: 1200, minHeight: 400, idealHeight: 900)
+//            }
         }
         .commands {
-            EditorCommands(document: EditableDocument())
+            SidebarCommands() // automatically adds commands for sidebar
+//            EditorCommands(document: $document)
         }
-        
-//        WindowGroup {
-//            ContentView()
-//                .frame(minWidth: 800, idealWidth: 1200, minHeight: 400, idealHeight: 800)
-//        }
-//        .commands {
-//            EditorCommands()
-//        }
+        Settings {
+            
+        }
     }
 }

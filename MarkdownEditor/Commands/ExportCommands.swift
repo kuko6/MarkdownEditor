@@ -8,14 +8,15 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct EditorCommands: Commands {
+
+// Doesnt really work, because of the document binding in MarkdownEditorApp
+struct ExportCommands: Commands {
     @State private var selectedExportType: UTType = .markdown
     @State private var isShowingExportDialog = false
     
-    var document: EditableDocument
+    @Binding var document: EditableDocument
     
     var body: some Commands {
-        SidebarCommands() // automatically adds commands for sidebar
         CommandGroup(after: .saveItem) {
             Menu("Export") {
                 Button("To Markdown") {

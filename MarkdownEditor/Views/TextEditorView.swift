@@ -32,7 +32,7 @@ struct TextEditorView: View {
         }
         .background(theme)
         .toolbar {
-//            ToolbarCommands()
+//            ToolbarCommands(document: $document)
             ToolbarItemGroup {
                 Menu {
                     Button("Markdown") {
