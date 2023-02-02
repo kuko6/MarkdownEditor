@@ -24,7 +24,6 @@ struct ParseMarkdown {
         parser.addModifier(inlineCodeMod)
         
         let html = parser.html(from: text)
-        //print(html)
         return html
     }
     

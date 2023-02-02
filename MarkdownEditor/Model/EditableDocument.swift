@@ -13,6 +13,10 @@ extension UTType {
     static var markdown: UTType {
         UTType(importedAs: "net.daringfireball.markdown")
     }
+    
+//    static var pdt: UTType {
+//        UTType(importedAs: "net.daringfireball.markdown")
+//    }
 }
 
 final class EditableDocument: FileDocument, ObservableObject {

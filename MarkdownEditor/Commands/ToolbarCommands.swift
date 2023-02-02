@@ -18,15 +18,15 @@ struct ToolbarCommands: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItemGroup {
             Menu {
-                Button("To Markdown") {
+                Button("To markdown") {
                     isShowingExportDialog = true
                     selectedExportType = .markdown
                 }
-                Button("To PlainText") {
+                Button("To plaintext") {
                     isShowingExportDialog = true
                     selectedExportType = .plainText
                 }
-                Button("To HTML") {
+                Button("To html") {
                     isShowingExportDialog = true
                     selectedExportType = .html
                 }
@@ -35,7 +35,7 @@ struct ToolbarCommands: ToolbarContent {
 //                    selectedExportType = .pdf
 //                }
             } label: {
-                Image(systemName: "square.and.arrow.up")
+                Image(systemName: "arrow.up.doc")
             }
             .fileExporter(isPresented: $isShowingExportDialog, document: document, contentType: selectedExportType) { results in }
         }

@@ -8,26 +8,25 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-
 // Doesnt really work, because of the document binding in MarkdownEditorApp
 struct ExportCommands: Commands {
     @State private var selectedExportType: UTType = .markdown
     @State private var isShowingExportDialog = false
     
-    @Binding var document: EditableDocument
+    @FocusedBinding(\.document) var document
     
     var body: some Commands {
         CommandGroup(after: .saveItem) {
             Menu("Export") {
-                Button("To Markdown") {
+                Button("To markdown") {
                     isShowingExportDialog = true
                     selectedExportType = .markdown
                 }
-                Button("To PlainText") {
+                Button("To plaintext") {
                     isShowingExportDialog = true
                     selectedExportType = .plainText
                 }
-                Button("To HTML") {
+                Button("To html") {
                     isShowingExportDialog = true
                     selectedExportType = .html
                 }
