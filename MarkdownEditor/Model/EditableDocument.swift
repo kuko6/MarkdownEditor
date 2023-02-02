@@ -26,29 +26,7 @@ final class EditableDocument: FileDocument, ObservableObject {
     var html = "<p>Ahojky</p>"
     
     init() {
-        text = """
-        # Test
-
-        Some _editable_ **text** and some `code`.
-
-        ## Table
-        | Header | Header 2 |
-        | ------ | -------- |
-        | Row 1  | Cell 1   |
-        | Row 2  | Cell 2   |
-
-        We used the following code for user verification:
-        ```
-        // Middleware for verifying the auth token for requests with userID
-        const verifyUserID = (req, res, next) => {
-            if (req.params.id != req.jwtPayload._id) {
-                return res.status(401).send({ error: { message: 'Invalid auth-token' } });
-            }
-            next();
-        };
-        ```
-        This method is used to verify the users JWT token :)
-        """
+        text = "*Write something cool today* :)"
     }
     
     // Loads previously saved data from file

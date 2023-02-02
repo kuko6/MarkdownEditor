@@ -16,7 +16,7 @@ struct ExportCommands: Commands {
     @FocusedBinding(\.document) var document
     
     var body: some Commands {
-        CommandGroup(after: .saveItem) {
+        CommandGroup(before: .importExport) {
             Menu("Export") {
                 Button("To markdown") {
                     isShowingExportDialog = true

@@ -33,30 +33,6 @@ struct TextEditorView: View {
         .background(theme)
         .toolbar {
             ToolbarCommands(document: $document)
-//            ToolbarItemGroup {
-//                Menu {
-//                    Button("Markdown") {
-//                        isShowingExportDialog = true
-//                        selectedExportType = .markdown
-//                    }
-//                    Button("PlainText") {
-//                        isShowingExportDialog = true
-//                        selectedExportType = .plainText
-//                    }
-//                    Button("HTML") {
-//                        isShowingExportDialog = true
-//                        selectedExportType = .html
-//                    }
-//                    Button("pdf") {
-//                        isShowingExportDialog = true
-//                        selectedExportType = .pdf
-//                    }
-//                } label: {
-//                    Label("Export", systemImage: "square.and.arrow.up")
-//                }
-//                .fileExporter(isPresented: $isShowingExportDialog, document: document, contentType: selectedExportType) { results in }
-//                .help("Export the document to:")
-//            }
         }
     }
 }
