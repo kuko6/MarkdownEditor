@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var document: EditableDocument
+    
     var body: some View {
-        TextEditorView()
+        TextEditorView(document: $document)
     }
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .preferredColorScheme(.light)       
+        ContentView(document: .constant(EditableDocument()))
+            .preferredColorScheme(.light)
     }
 }
