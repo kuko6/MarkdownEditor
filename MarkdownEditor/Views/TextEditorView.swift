@@ -21,8 +21,8 @@ struct TextEditorView: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            TextEditor(text: $fullText)
-                .font(.custom("Monaco", size: 12))
+            TextEditor(text: $document.text)
+                .font(.custom("SF Mono Regular", size: 12))
                 .lineSpacing(2)
                 .disableAutocorrection(true)
                 .allowsTightening(false)
